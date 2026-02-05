@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière | Salão de Beleza & Estética</title>
+  <meta name="description"
+    content="Experimente o luxo e a sofisticação no Lumière. Especialistas em cabelos, unhas e cuidados com a pele." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Ionicons for some icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body style="margin: 0; background: #1a1a1a; overflow: hidden;">
+  <!-- Pre-loader -->
+  <div id="loader" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  ">
+    <div style="text-align: center;">
+      <div style="
+        font-family: 'Playfair Display', serif;
+        color: #d4af37;
+        font-size: 2.5rem;
+        letter-spacing: 10px;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+      ">LUMIÈRE</div>
+      <div style="
+        width: 100px;
+        height: 2px;
+        background: rgba(212, 175, 55, 0.2);
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      ">
+        <div style="
+          position: absolute;
+          width: 50px;
+          height: 100%;
+          background: #d4af37;
+          animation: loading 1.5s infinite ease-in-out;
+        "></div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes loading {
+      0% {
+        left: -50px;
+      }
+
+      100% {
+        left: 100px;
+      }
+    }
+  </style>
+  <header id="header">
+    <nav class="container">
+      <div class="logo">LUMIÈRE</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#location">Localização</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+      <a href="#booking" class="btn btn-primary">Agendar Agora</a>
+      <div class="menu-toggle">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content container">
+        <h1 class="reveal-type">Reinvente sua <br><span class="accent-text">Beleza</span></h1>
+        <p class="hero-subtitle">Um refúgio de luxo e cuidado onde cada detalhe é pensado para ressaltar o que há de
+          melhor em você.</p>
+        <div class="hero-btns">
+          <a href="#booking" class="btn btn-primary">Agendar Consultoria</a>
+          <a href="#services" class="btn btn-secondary">Ver Serviços</a>
+        </div>
+      </div>
+      <div class="hero-image-container">
+        <div class="hero-overlay"></div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding">
+      <div class="container">
+        <div class="section-title">
+          <span>Nossa Expertise</span>
+          <h2>Serviços Exclusivos</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><ion-icon name="sparkles-outline"></ion-icon></div>
+            <h3>Hair Styling</h3>
+            <p>Cortes, coloração e tratamentos capilares com os melhores produtos do mercado mundial.</p>
+            <a href="#" class="service-link">Saber mais →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><ion-icon name="brush-outline"></ion-icon></div>
+            <h3>Nail Care</h3>
+            <p>Manicure e pedicure de alto padrão com técnicas modernas e acabamento impecável.</p>
+            <a href="#" class="service-link">Saber mais →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><ion-icon name="rose-outline"></ion-icon></div>
+            <h3>Skin Care</h3>
+            <p>Tratamentos faciais personalizados para revitalizar e nutrir sua pele profundamente.</p>
+            <a href="#" class="service-link">Saber mais →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><ion-icon name="body-outline"></ion-icon></div>
+            <h3>Makeup</h3>
+            <p>Maquiagem profissional para eventos especiais, realçando sua beleza natural.</p>
+            <a href="#" class="service-link">Saber mais →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding secondary-bg">
+      <div class="container about-wrapper">
+        <div class="about-image">
+          <div class="image-box"></div>
+          <div class="experience-card">
+            <span>15+</span>
+            <p>Anos de Excelência</p>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-title">
+            <span>Sobre o Lumière</span>
+            <h2>Sua Beleza, Nossa Dedicação</h2>
+          </div>
+          <p>No Lumière, acreditamos que a beleza é uma expressão de bem-estar. Nossa equipe de especialistas altamente
+            qualificados utiliza as técnicas mais avançadas para proporcionar uma experiência única.</p>
+          <p>Combinamos luxo, conforto e tecnologia para que você se sinta renovada a cada visita.</p>
+          <ul class="check-list">
+            <li>Especialistas Master</li>
+            <li>Ambiente VIP e Exclusivo</li>
+            <li>Produtos Orgânicos e Veganos</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Conheça nossa Equipe</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Booking -->
+    <section id="booking" class="booking section-padding accent-bg">
+      <div class="container booking-container">
+        <h2>Pronta para brilhar?</h2>
+        <p>Reserve seu horário agora e garanta uma experiência inesquecível.</p>
+        <div class="booking-form-wrapper">
+          <input type="text" placeholder="Seu Nome" />
+          <input type="email" placeholder="Seu Email" />
+          <select>
+            <option>Selecione um Serviço</option>
+            <option>Hair Styling</option>
+            <option>Nail Care</option>
+            <option>Skin Care</option>
+            <option>Makeup</option>
+          </select>
+          <button class="btn btn-dark">Reservar Agora</button>
+        </div>
+      </div>
+    </section>
+    <!-- Location Section -->
+    <section id="location" class="location section-padding">
+      <div class="container mobile-no-padding">
+        <div class="location-wrapper">
+          <div class="location-info">
+            <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
+              <span>Visite-nos</span>
+              <h2>Onde Estamos</h2>
+            </div>
+            <div class="info-item">
+              <ion-icon name="location-outline"></ion-icon>
+              <div>
+                <h4>Endereço</h4>
+                <p>Rua das Flores, 123 - Jardins<br>São Paulo, SP - 01234-567</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <ion-icon name="time-outline"></ion-icon>
+              <div>
+                <h4>Horário de Funcionamento</h4>
+                <p>Segunda - Sexta: 09h às 20h<br>Sábado: 09h às 18h</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <ion-icon name="call-outline"></ion-icon>
+              <div>
+                <h4>Telefone e WhatsApp</h4>
+                <p>(11) 98765-4321<br>(11) 3456-7890</p>
+              </div>
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-secondary">Abrir no Maps</a>
+          </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0658301181!2d-46.6663236!3d-23.5660591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d3e8e7b163%3A0xc3c94ec4c414603c!2sAlameda%20Lorena!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <div class="logo">LUMIÈRE</div>
+        <p>Elevando o padrão de beleza e autocuidado através de excelência e inovação.</p>
+        <div class="social-links">
+          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <p>Rua das Flores, 123 - Centro</p>
+        <p>(11) 98765-4321</p>
+        <p>contato@lumiere.com.br</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Lumière Beauty Salon. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
